@@ -43,7 +43,7 @@ install() {
 	echo "----------------------------------------------------"
 	echo ""
 
-	cd /tmp &&
+	cd /utilities/temp &&
 	$wget http://www.sqlite.org/sqlite-autoconf-3071300.tar.gz &&
 	tar xfz sqlite-autoconf-3071300.tar.gz &&
 	cd sqlite-autoconf-3071300/ &&
@@ -51,7 +51,7 @@ install() {
 	make
 	make install
 
-	cd /tmp &&
+	cd /utilities/temp &&
 	$wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tgz &&
 	tar xzf Python-2.7.3.tgz &&
 	cd Python-2.7.3 &&
@@ -78,13 +78,13 @@ extra() {
 
     export PATH=$PATH:/usr/bin:/opt/python2.7.3/bin
 
-	cd /tmp &&
+	cd /utilities/temp &&
 	$wget http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg &&
 	cd /opt/python2.7.3/lib/python2.7/config &&
 	ln -s ../../libpython2.7.so . 
 	ln -sf /opt/python2.7.3/lib/libpython2.7.so /usr/lib/libpython2.7.so ;
 	/sbin/ldconfig &&
-	sh /tmp/setuptools-0.6c11-py2.7.egg --prefix=/opt/python2.7.3
+	sh /utilities/temp/setuptools-0.6c11-py2.7.egg --prefix=/opt/python2.7.3
 
 	/opt/python2.7.3/bin/easy_install pip
 #	ln -sf /opt/python2.7.3/bin/pip /usr/bin/pip
@@ -103,11 +103,11 @@ cleaning() {
 	echo "French maid time... let's clean everything."
 	echo "----------------------------------------------------"
 
-	rm -fr /tmp/Python-2.7.3.tgz ;
-	rm -fr /tmp/Python-2.7.3 ;
-	rm -fr /tmp/setuptools-0.6c11-py2.7.egg ;
-	rm -fr /tmp/sqlite-autoconf-* ;
-	rm -fr /tmp/sqlite-autoconf-* ;
+	rm -fr /utilities/temp/Python-2.7.3.tgz ;
+	rm -fr /utilities/temp/Python-2.7.3 ;
+	rm -fr /utilities/temp/setuptools-0.6c11-py2.7.egg ;
+	rm -fr /utilities/temp/sqlite-autoconf-* ;
+	rm -fr /utilities/temp/sqlite-autoconf-* ;
 
 }
 
